@@ -1,0 +1,16 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1759254945
+connetServerClient.gd::GDScript::4321470942805270452::1759254958::0::1::::<>Node3D<><>0<>0<><>::
+default_env.tres::Environment::2935038614843590681::1759254958::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1758914951::0::1::::<><><>0<>0<><>::
+icon.png::CompressedTexture2D::8780993065103523518::1758914951::1758915035::1::::<><><>0<>0<>ab8d31929a25efc1769a66112bd37558<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
+::res://Levels/::1759254945
+World.tscn::PackedScene::8271166358395529703::1759254958::0::1::::<><><>0<>0<><>::uid://by5b6l5yaff5f::::res://Objects/Player.tscn<>uid://digka151w3csd::::res://Scripts/PlayerOld.gd<>uid://jxyeq1nv4qwr::::res://Sprites/TerrainTileSet.png<>uid://dxdtw43hg2r4i::::res://icon.png
+::res://Objects/::1759248996
+Player.tscn::PackedScene::4133000965423127357::1759248996::0::1::::<><><>0<>0<><>::uid://dhu8r8eg4jfmh::::res://Sprites/PlayerSpriteSheet.png<>uid://ctnm2qdaq0y2g::::res://Scripts/Player.gd
+::res://Scripts/::1759254885
+Player.gd::GDScript::6134043972690632452::1759248401::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerOld.gd::GDScript::7733767649798645615::1759254885::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://Sprites/::1758915035
+PlayerSpriteSheet.png::CompressedTexture2D::7693907270645900555::1758914951::1758915035::1::::<><><>0<>0<>5e2a52d2750de5bd335bb46f6a5104cf<>res://.godot/imported/PlayerSpriteSheet.png-d72a160ece3f69390b8beacc09b7c17e.ctex::
+TerrainTileSet.png::CompressedTexture2D::680645513246080789::1758914951::1758915035::1::::<><><>0<>0<>553d2d213a0f2628be00cd3c1fe2de5a<>res://.godot/imported/TerrainTileSet.png-9fc577442697db87e167065dfbd51cd9.ctex::
