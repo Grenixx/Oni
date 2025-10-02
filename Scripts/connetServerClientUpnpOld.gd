@@ -21,7 +21,7 @@ func _ready():
 
 			# Récupère l'IP publique
 			var external_ip = upnp.query_external_address()
-			$CanvasLayer/BoxContainer/Label.text = external_ip
+			#$CanvasLayer/BoxContainer/Label.text = external_ip
 			if external_ip != "":
 				print("✅ IP publique du serveur :", external_ip, " sur le port ", PORT)
 			else:
@@ -40,11 +40,7 @@ func _on_host_pressed() -> void:
 	$CanvasLayer.hide()
 
 func _on_join_pressed() -> void:
-	if $CanvasLayer/BoxContainer/LineEdit.text :
-		peer.create_client($CanvasLayer/BoxContainer/LineEdit.text, PORT)
-	else:
-		peer.create_client("127.0.0.1", PORT)
-	#peer.create_client("127.0.0.1", PORT)
+	peer.create_client("127.0.0.1", PORT)
 	multiplayer.multiplayer_peer = peer
 	$CanvasLayer.hide()
 
@@ -57,3 +53,6 @@ func add_player(id = 1):
 @rpc("any_peer","call_local")
 func del_player(id):
 	get_node(str(id)).queue_free()
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	pass # Replace with function body.
