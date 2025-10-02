@@ -6334,6 +6334,10 @@ text = "HOST"
 layout_mode = 2
 text = "JOIN"
 
+[node name="Host&Play" type="Button" parent="CanvasLayer/BoxContainer"]
+layout_mode = 2
+text = "Host&Play"
+
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/BoxContainer"]
 layout_mode = 2
 
@@ -6343,3 +6347,4 @@ label_settings = SubResource("LabelSettings_8ol0e")
 
 [connection signal="pressed" from="CanvasLayer/BoxContainer/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/BoxContainer/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="CanvasLayer/BoxContainer/Host&Play" to="." method="_on_host_play_pressed"]

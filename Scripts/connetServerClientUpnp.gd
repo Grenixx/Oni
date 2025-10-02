@@ -36,7 +36,6 @@ func _on_host_pressed() -> void:
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(del_player)
-	add_player() # si le serveur a déjà un joueur
 	$CanvasLayer.hide()
 
 func _on_join_pressed() -> void:
@@ -46,6 +45,15 @@ func _on_join_pressed() -> void:
 		peer.create_client("127.0.0.1", PORT)
 	#peer.create_client("127.0.0.1", PORT)
 	multiplayer.multiplayer_peer = peer
+	$CanvasLayer.hide()
+	
+
+func _on_host_play_pressed() -> void:
+	peer.create_server(PORT)
+	multiplayer.multiplayer_peer = peer
+	multiplayer.peer_connected.connect(add_player)
+	multiplayer.peer_disconnected.connect(del_player)
+	add_player() # si le serveur a déjà un joueur
 	$CanvasLayer.hide()
 
 @onready var player_scene = preload("res://Objects/Player.tscn")

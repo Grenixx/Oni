@@ -1,4 +1,3 @@
 res://default_env.tres
-res://enemy.tscn
-res://Scripts/connetServerClientUpnp.gd
 res://Levels/World.tscn
+res://Scripts/connetServerClientUpnp.gd
