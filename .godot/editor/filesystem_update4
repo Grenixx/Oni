@@ -1,10 +1,4 @@
 res://default_env.tres
-res://Levels/DemoLevel.tscn
-res://Levels/Oni.tscn
-res://Scripts/PlayerOld.gd
+res://enemy.tscn
+res://Scripts/connetServerClientUpnp.gd
 res://Levels/World.tscn
-res://connetServerClient.gd
-res://Objects/Player.tscn
-res://Scripts/connetServerClient.gd
-res://Scripts/Player.gd
-res://Objects/camera_2d.gd

@@ -1,21 +1,5 @@
 extends CharacterBody2D
 
-@onready var AttackSprite = $AttackSprite
-
-var isAttacking = false
-var attackDuration = 0.2 # durée de l’attaque en secondes
-var attackTimer = 0.0
-
-func start_attack():
-	isAttacking = true
-	attackTimer = 0.0
-	AttackSprite.visible = true
-	$HitBox.monitoring = true
-	$HitBox.monitorable = true
-
-func player():
-	pass
-
 #State Vars
 var states = ["idle", "run", "dash", "fall", "jump", "double_jump"] #list of all states
 var currentState = states[0] #what state's d qlogic is being called every frame
@@ -128,25 +112,9 @@ func _physics_process(delta):
 		recover_sprite_scale()
 		
 		PlayerSprite.flip_h = lastDirection - 1 #flip sprite depending on which direction you last moved in
-		AttackSprite.flip_h = lastDirection == -1
-
-		
-		if isAttacking:
-			attackTimer += delta
-			if attackTimer >= attackDuration:
-				isAttacking = false
-				AttackSprite.visible = false
-				$HitBox.monitoring = false
-				$HitBox.monitorable = false
-
 
 func get_input():
 	#set input vars
-	var isAttackPressed = Input.is_action_just_pressed("attack")
-	if isAttackPressed and not isAttacking:
-		start_attack()
-
-
 	movementInput = Input.get_action_strength("right") - Input.get_action_strength("left") #set movement input to 1,-1, or 0
 	if movementInput != 0:
 		lastDirection = movementInput #set last direction if movement input isnt 0

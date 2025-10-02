@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://by5b6l5yaff5f"]
+[gd_scene load_steps=15 format=3 uid="uid://c7gtm3s2xnj3c"]
 
-[ext_resource type="Texture2D" uid="uid://dhu8r8eg4jfmh" path="res://Sprites/PlayerSpriteSheet.png" id="1"]
-[ext_resource type="Script" uid="uid://ctnm2qdaq0y2g" path="res://Scripts/Player.gd" id="2"]
-[ext_resource type="Script" uid="uid://dk2x7eh45cjye" path="res://Objects/camera_2d.gd" id="3_yk4ok"]
-[ext_resource type="Texture2D" uid="uid://dxdtw43hg2r4i" path="res://icon.png" id="4_gijnf"]
+[ext_resource type="Script" uid="uid://ctnm2qdaq0y2g" path="res://Scripts/Player.gd" id="1_skypp"]
+[ext_resource type="Texture2D" uid="uid://dhu8r8eg4jfmh" path="res://Sprites/PlayerSpriteSheet.png" id="2_axn27"]
+[ext_resource type="Script" uid="uid://dk2x7eh45cjye" path="res://Objects/camera_2d.gd" id="3_0d3gf"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(18.63318, 22.8372)
@@ -134,28 +133,22 @@ properties/2/spawn = true
 properties/2/replication_mode = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yk4ok"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gijnf"]
+radius = 14.0
+height = 34.0
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("2")
+script = ExtResource("1_skypp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1.75194, 0.29199)
-texture = ExtResource("1")
+texture = ExtResource("2_axn27")
 hframes = 12
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.83739, 3.97225)
 shape = SubResource("1")
-
-[node name="AttackSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(23, 1)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("4_gijnf")
 
 [node name="RightRaycast" type="RayCast2D" parent="."]
 target_position = Vector2(8, 0)
@@ -173,7 +166,7 @@ autoplay = "Idle"
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
-script = ExtResource("3_yk4ok")
+script = ExtResource("3_0d3gf")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_n6db0")
@@ -183,11 +176,3 @@ replication_config = SubResource("SceneReplicationConfig_n6db0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_yk4ok")
-
-[node name="HitBox" type="Area2D" parent="."]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(23, 2)
-shape = SubResource("RectangleShape2D_gijnf")
