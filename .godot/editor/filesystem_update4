@@ -1,3 +1,9 @@
 res://default_env.tres
 res://Levels/World.tscn
 res://Scripts/connetServerClientUpnp.gd
+res://SplashScreen.tscn
+res://splash_screen.gd
+res://Levels/SplashScreen.tscn
+res://Scene/SplashScreen.tscn
+res://Scene/World.tscn
+res://Objects/Player.tscn

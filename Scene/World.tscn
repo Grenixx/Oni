@@ -6301,7 +6301,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_u4uqp")
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ol0e"]
-font_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_hmvop")
@@ -6318,33 +6317,51 @@ layer_0/tile_data = PackedInt32Array(851988, 524288, 0, 851987, 458752, 0, 85198
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_right = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 vertical = true
 
-[node name="host" type="Button" parent="CanvasLayer/BoxContainer"]
+[node name="host" type="Button" parent="CanvasLayer/HBoxContainer/BoxContainer"]
 layout_mode = 2
 text = "HOST"
 
-[node name="join" type="Button" parent="CanvasLayer/BoxContainer"]
+[node name="join" type="Button" parent="CanvasLayer/HBoxContainer/BoxContainer"]
 layout_mode = 2
 text = "JOIN"
 
-[node name="Host&Play" type="Button" parent="CanvasLayer/BoxContainer"]
+[node name="Host&Play" type="Button" parent="CanvasLayer/HBoxContainer/BoxContainer"]
 layout_mode = 2
 text = "Host&Play"
 
-[node name="LineEdit" type="LineEdit" parent="CanvasLayer/BoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/HBoxContainer/BoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/BoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/BoxContainer"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_8ol0e")
 
-[connection signal="pressed" from="CanvasLayer/BoxContainer/host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="CanvasLayer/BoxContainer/join" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="CanvasLayer/BoxContainer/Host&Play" to="." method="_on_host_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/BoxContainer/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/BoxContainer/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/BoxContainer/Host&Play" to="." method="_on_host_play_pressed"]

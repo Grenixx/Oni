@@ -1,10 +1,13 @@
+HBoxContainer
+ColorRect
+TextureRect
+CenterContainer
 Button
 Label
 LineEdit
 TextEdit
 Sprite2D
 CollisionShape2D
-ColorRect
 Area2D
 MultiplayerSynchronizer
 MultiplayerSpawner

@@ -21,7 +21,7 @@ func _ready():
 
 			# Récupère l'IP publique
 			var external_ip = upnp.query_external_address()
-			$CanvasLayer/BoxContainer/Label.text = external_ip
+			$CanvasLayer/HBoxContainer/BoxContainer/Label.text = external_ip
 			if external_ip != "":
 				print("✅ IP publique du serveur :", external_ip, " sur le port ", PORT)
 			else:
