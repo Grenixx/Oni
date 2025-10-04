@@ -49,9 +49,9 @@ var lastDirection = 1 #last direction pressed that is not 0
 var isJumpPressed = 0 #will be 1 on the frame that the jump button was pressed
 var isJumpReleased #will be 1 on the frame that the jump button was released
 
-var coyoteStartTime = 0.2 #ticks when you pressed jump button
+var coyoteStartTime = 0 #ticks when you pressed jump button
 var elapsedCoyoteTime = 0 #elapsed time since you last clicked jump
-var coyoteDuration = 0.20 #how many miliseconds to remember a jump press
+var coyoteDuration = 00 #how many miliseconds to remember a jump press
 
 var jumpInput = 0 #jump press with coyote time
 
@@ -91,17 +91,13 @@ var jumpVelocity #how much to apply to velocity.y to reach jump height
 var doubleJumpHeight = 50 #How high the peak of the double jump is in pixels
 var doubleJumpVelocity #how much to apply to velocity.y to reach double jump height
 
-#pogo
-#var pogoJumpHeight = 50
-#var pogoJumpVelocity 
-
 var isDoubleJumped = false #if you have double jumped
 
 #wall slide
 var wallSlideSpeed = 50 #how fast you slide on a wll
 
 #wall jump
-var wallJumpHeight = 50 #how high you want the peak of your wall jump to be in pixels
+var wallJumpHeight = 128 #how high you want the peak of your wall jump to be in pixels
 var wallJumpVelocity #how much to apply to velocity.y to reach wall jump height
 
 func _enter_tree() -> void:
@@ -490,8 +486,3 @@ func wall_jump_logic(delta):
 
 func wall_jump_exit_logic():
 	canDash = true #allow the players to dash again if they wall jump
-
-
-func _on_hit_box_area_entered(area: Area2D) -> void:
-	if area.get_parent().has_method("enemy"):
-		jump(doubleJumpVelocity)

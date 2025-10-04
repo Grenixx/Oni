@@ -49,9 +49,9 @@ var lastDirection = 1 #last direction pressed that is not 0
 var isJumpPressed = 0 #will be 1 on the frame that the jump button was pressed
 var isJumpReleased #will be 1 on the frame that the jump button was released
 
-var coyoteStartTime = 0.2 #ticks when you pressed jump button
+var coyoteStartTime = 0 #ticks when you pressed jump button
 var elapsedCoyoteTime = 0 #elapsed time since you last clicked jump
-var coyoteDuration = 0.20 #how many miliseconds to remember a jump press
+var coyoteDuration = 00 #how many miliseconds to remember a jump press
 
 var jumpInput = 0 #jump press with coyote time
 
@@ -91,17 +91,13 @@ var jumpVelocity #how much to apply to velocity.y to reach jump height
 var doubleJumpHeight = 50 #How high the peak of the double jump is in pixels
 var doubleJumpVelocity #how much to apply to velocity.y to reach double jump height
 
-#pogo
-#var pogoJumpHeight = 50
-#var pogoJumpVelocity 
-
 var isDoubleJumped = false #if you have double jumped
 
 #wall slide
 var wallSlideSpeed = 50 #how fast you slide on a wll
 
 #wall jump
-var wallJumpHeight = 50 #how high you want the peak of your wall jump to be in pixels
+var wallJumpHeight = 128 #how high you want the peak of your wall jump to be in pixels
 var wallJumpVelocity #how much to apply to velocity.y to reach wall jump height
 
 func _enter_tree() -> void:
@@ -145,39 +141,33 @@ func _physics_process(delta):
 
 
 func get_input():
-	# Attaque
+	#set input vars
 	var isAttackPressed = Input.is_action_just_pressed("attack")
 	if isAttackPressed and not isAttacking:
 		start_attack()
 
-	# Mouvement horizontal
-	var move_x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	var move_y = Input.get_action_strength("down") - Input.get_action_strength("up")
 
-	# On garde movementInput pour le reste du code
-	if move_x != 0:
-		movementInput = sign(move_x)
-	else:
-		movementInput = 0
-	
-	# Garder lastDirection pour le dash ou flip
+	movementInput = Input.get_action_strength("right") - Input.get_action_strength("left") #set movement input to 1,-1, or 0
 	if movementInput != 0:
-		lastDirection = movementInput
-
-	# Saut
-	isJumpPressed = Input.is_action_just_pressed("jump")
+		lastDirection = movementInput #set last direction if movement input isnt 0
+	
+	
+	isJumpPressed = Input.is_action_just_pressed("jump") 
 	isJumpReleased = Input.is_action_just_released("jump")
-
-	if jumpInput == 0 and isJumpPressed:
-		jumpInput = 1
-		coyoteStartTime = Time.get_ticks_msec()
-
+	
+	#set coyote jump time (remember jump presses to make the jump more forgiving)
+	if jumpInput == 0 && isJumpPressed:
+		#if you press jump and your not already in coyote time
+		jumpInput = int(isJumpPressed) #set jump to 1
+		coyoteStartTime = Time.get_ticks_msec() #start timer
+	
 	elapsedCoyoteTime = Time.get_ticks_msec() - coyoteStartTime
-	if jumpInput != 0 and elapsedCoyoteTime > coyoteDuration:
-		jumpInput = 0
-		coyoteStartTime = 0
 
-	# Dash
+	if jumpInput != 0 && elapsedCoyoteTime > coyoteDuration:
+		#if timer expires and your in coyote time
+		jumpInput = 0 #reset jump input
+		coyoteStartTime = 0 #reset timer
+	
 	isDashPressed = Input.is_action_just_pressed("dash")
 
 func apply_gravity(delta):
@@ -490,8 +480,3 @@ func wall_jump_logic(delta):
 
 func wall_jump_exit_logic():
 	canDash = true #allow the players to dash again if they wall jump
-
-
-func _on_hit_box_area_entered(area: Area2D) -> void:
-	if area.get_parent().has_method("enemy"):
-		jump(doubleJumpVelocity)

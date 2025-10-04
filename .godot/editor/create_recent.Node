@@ -1,3 +1,4 @@
+Control
 HBoxContainer
 ColorRect
 TextureRect
@@ -12,4 +13,3 @@ Area2D
 MultiplayerSynchronizer
 MultiplayerSpawner
 Camera2D
-StaticBody2D

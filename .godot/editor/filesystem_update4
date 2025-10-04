@@ -7,3 +7,7 @@ res://Levels/SplashScreen.tscn
 res://Scene/SplashScreen.tscn
 res://Scene/World.tscn
 res://Objects/Player.tscn
+res://Scripts/Player.gd
+res://enemy.tscn
+res://enemy.gd
+res://Scene/canvas_layer.gd

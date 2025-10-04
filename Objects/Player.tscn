@@ -152,9 +152,8 @@ position = Vector2(-2.83739, 3.97225)
 shape = SubResource("1")
 
 [node name="AttackSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(23, 1)
-scale = Vector2(0.375, 0.375)
+position = Vector2(-1, 29)
+scale = Vector2(0.315, 0.315)
 texture = ExtResource("4_gijnf")
 
 [node name="RightRaycast" type="RayCast2D" parent="."]
@@ -188,5 +187,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(23, 2)
+position = Vector2(-1, 29)
 shape = SubResource("RectangleShape2D_gijnf")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
