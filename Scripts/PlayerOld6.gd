@@ -67,8 +67,8 @@ var decceleration = 40 #by how much does velocity approach when you stop moving 
 var airFriction = 60 #how much you subtract velocity when you start moving horizontally in the air
 
 #dash
-var dashSpeed = 200 #how fast you dash
-var dashDurration = 100  #how long you dash for (in milisecconds)
+var dashSpeed = 60 #how fast you dash
+var dashDurration = 160  #how long you dash for (in milisecconds)
 
 var canDash = true #can the character dash
 var dashStartTime #how many miliseconds passed when you started dashing 
@@ -150,7 +150,7 @@ func _physics_process(delta):
 				$HitBox.monitoring = false
 				$HitBox.monitorable = false
 
-var input_vector : Vector2
+
 func get_input():
 	# Attaque
 	var isAttackPressed = Input.is_action_just_pressed("attack")
@@ -160,8 +160,6 @@ func get_input():
 	# Mouvement horizontal
 	var move_x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var move_y = Input.get_action_strength("down") - Input.get_action_strength("up")
-	
-	input_vector = Vector2(move_x, move_y)
 
 	# On garde movementInput pour le reste du code
 	if move_x != 0:
@@ -332,21 +330,7 @@ func fall_exit_logic():
 	jumpBufferStartTime = 0 #reset jump buffer start time
 
 func dash_enter_logic():
-	var dir = input_vector
-	
-	# Si aucune entrée, garder la dernière direction connue
-	if dir == Vector2.ZERO:
-		dir = Vector2(lastDirection,0)
-	
-	# 🔹 On ne garde qu’un axe cardinal (nord, sud, est, ouest)
-	if abs(dir.x) > abs(dir.y):
-		dir = Vector2(sign(dir.x), 0)
-	else:
-		dir = Vector2(0, sign(dir.y))
-	
-	dashDirection = dir
-	
-	#dashDirection = input_vector # lastDirection set dash direction (we use lastDirection to make sure we dash even when idle)
+	dashDirection = lastDirection #set dash direction (we use lastDirection to make sure we dash even when idle)
 	dashStartTime = Time.get_ticks_msec() #set dash start time to total ticks since the game started
 	
 	velocity = Vector2.ZERO #set velocity to zero
@@ -357,7 +341,7 @@ func dash_enter_logic():
 func dash_logic(delta):
 	elapsedDashTime = Time.get_ticks_msec() - dashStartTime #set elapsed dash time
 	
-	velocity += Vector2(dashDirection.x*dashSpeed,dashDirection.y*dashSpeed) #add dash speed to velocity and multiply by dash direction
+	velocity.x += dashSpeed * dashDirection #add dash speed to velocity and multiply by dash direction
 	
 	if elapsedDashTime > dashDurration: 
 		#if elapsed dash time is greater then the dash durration
