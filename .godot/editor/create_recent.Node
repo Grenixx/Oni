@@ -1,3 +1,7 @@
+WorldEnvironment
+Sprite2D
+Parallax2D
+TileMapLayer
 Control
 HBoxContainer
 ColorRect
@@ -7,9 +11,4 @@ Button
 Label
 LineEdit
 TextEdit
-Sprite2D
 CollisionShape2D
-Area2D
-MultiplayerSynchronizer
-MultiplayerSpawner
-Camera2D

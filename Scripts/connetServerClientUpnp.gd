@@ -39,8 +39,8 @@ func _on_host_pressed() -> void:
 	$CanvasLayer.hide()
 
 func _on_join_pressed() -> void:
-	if $CanvasLayer/BoxContainer/LineEdit.text :
-		peer.create_client($CanvasLayer/BoxContainer/LineEdit.text, PORT)
+	if $CanvasLayer/HBoxContainer/BoxContainer/LineEdit.text :
+		peer.create_client($CanvasLayer/HBoxContainer/BoxContainer/LineEdit.text, PORT)
 	else:
 		peer.create_client("127.0.0.1", PORT)
 	#peer.create_client("127.0.0.1", PORT)
@@ -56,7 +56,7 @@ func _on_host_play_pressed() -> void:
 	add_player() # si le serveur a déjà un joueur
 	$CanvasLayer.hide()
 
-@onready var player_scene = preload("res://Objects/Player.tscn")
+@export var player_scene : PackedScene
 func add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
