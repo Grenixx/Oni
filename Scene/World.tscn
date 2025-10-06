@@ -6317,6 +6317,10 @@ font_color = Color(0, 0, 0, 1)
 script = ExtResource("1_hmvop")
 player_scene = ExtResource("2_gx810")
 
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://by5b6l5yaff5f")
+spawn_path = NodePath("..")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hddgy")
 
@@ -6498,9 +6502,6 @@ repeat_times = 3
 texture_filter = 1
 position = Vector2(42, 86)
 texture = ExtResource("5_g3u1b")
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-spawn_path = NodePath("..")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
