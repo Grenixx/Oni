@@ -28,19 +28,18 @@ var previousState = null #last state that was being calles
 @onready var RightRaycast = $RightRaycast #path to the right raycast
 @onready var LeftRaycast = $LeftRaycast  #path to the left raycast
 
-
-var isJumping = false      # vrai tant que le joueur tient la touche
-var jumpHoldTime = 0.0     # durée pendant laquelle la touche est maintenue
-var maxJumpHold = 0.2    # en secondes → durée max où on applique "gravity réduite"
+var isJumping = false      # vrai tant que la touche est maintenue
+var jumpHoldTime = 0.0     # temps écoulé depuis le début du saut
+var maxJumpHold = 0.2   # durée max du saut tenu (en SECONDES, typiquement entre 0.2 et 0.35)
 
 #Squash & Stretch
 var recoverySpeed = 0.03 #how fast you recover from squashes, and stretches
 
-var landingSquash = 1.5 #x scale of PlayerSprite when you land
-var landingStretch = 0.5 #y scale of PlayerSprite when you land
+var landingSquash = 1.2 #x scale of PlayerSprite when you land
+var landingStretch = 0.8 #y scale of PlayerSprite when you land
 
-var jumpingSquash = 0.5 #x scale of PlayerSprite when you jump
-var jumpingStretch = 1.5 #y scale of PlayerSprite when you jump
+var jumpingSquash = 0.8 #x scale of PlayerSprite when you jump
+var jumpingStretch = 1.2 #y scale of PlayerSprite when you jump
 
 #Input Vars
 var movementInput = 0 #will be 1, -1, 0 depending on if you are holding right, left, or nothing
@@ -82,7 +81,6 @@ var jumpBufferStartTime  = 0 #ticks when you ran of the platform
 var elapsedJumpBuffer = 0 #how many seconds passed in the jump nuffer
 var jumpBuffer = 100 #how many miliseconds allowance you give jumps after you run of an edge
 
-
 #jump
 var jumpHeight = 100  #How high the peak of the jump is in pixels
 var jumpVelocity #how much to apply to velocity.y to reach jump height
@@ -106,9 +104,6 @@ var wallJumpVelocity #how much to apply to velocity.y to reach wall jump height
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
-#functions
-
-
 
 func _ready():
 	if is_multiplayer_authority():
@@ -376,11 +371,11 @@ func jump_enter_logic():
 	isJumping = true
 	jumpHoldTime = 0.0
 
-
 func jump_logic(delta):
 	move_horizontally(airFriction)
 
 	if velocity.y < 0:
+		
 		# si on est en montée
 		if isJumping:
 			jumpHoldTime += delta
@@ -388,13 +383,15 @@ func jump_logic(delta):
 				isJumping = false  # on arrête d'appliquer le "bonus de saut"
 		
 		if isJumpReleased:
+			print("relese")
 			isJumping = false  # relâchement stoppe immédiatement la montée
 		
 		# Applique gravité réduite si encore en saut
 		if isJumping:
-			velocity.y += gravity * 0.2 * delta  # gravité plus faible
+			velocity.y += gravity * 0.0 * delta  # gravité plus faible
 		else:
-			velocity.y += gravity * 1.2 * delta        # gravité normale
+			# print("grave")
+			velocity.y += gravity * (maxJumpHold/jumpHoldTime) * 3 * delta        # gravité normale
 
 		# Double jump
 		if isJumpPressed and not isDoubleJumped:
@@ -413,6 +410,7 @@ func jump_logic(delta):
 
 func jump_exit_logic():
 	isJumping = false
+	jumpHoldTime = 0.0
 
 
 func double_jump_enter_logic():
