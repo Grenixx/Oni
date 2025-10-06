@@ -1,3 +1,8 @@
 res://Scene/World.tscn
 res://Scene/Player.tscn
 res://Scripts/Player.gd
+res://menu.tscn
+res://Scene/SplashScreen.tscn
+res://menu.gd
+res://Scripts/NetworkSettings.gd
+res://Scripts/connetServerClientUpnp.gd

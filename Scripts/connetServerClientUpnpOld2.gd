@@ -21,7 +21,7 @@ func _ready():
 
 			# Récupère l'IP publique
 			var external_ip = upnp.query_external_address()
-			#$CanvasLayer/HBoxContainer/BoxContainer/Label.text = external_ip
+			$CanvasLayer/HBoxContainer/BoxContainer/Label.text = external_ip
 			if external_ip != "":
 				print("✅ IP publique du serveur :", external_ip, " sur le port ", PORT)
 			else:
@@ -30,39 +30,31 @@ func _ready():
 			push_error("Pas de passerelle UPNP valide trouvée.")
 	else:
 		push_error("Découverte UPNP échouée.")
-	
-	match NetworkSettings.mode:
-		"host":
-			start_host()
-		"join":
-			start_client(NetworkSettings.ip)
-		"host+join":
-			start_host_and_join()
 
-func start_host() -> void:
+func _on_host_pressed() -> void:
 	peer.create_server(PORT)
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(del_player)
+	$CanvasLayer.hide()
 
-
-func start_client(ip) -> void:
-	if ip :
-		peer.create_client(ip, PORT)
+func _on_join_pressed() -> void:
+	if $CanvasLayer/HBoxContainer/BoxContainer/LineEdit.text :
+		peer.create_client($CanvasLayer/HBoxContainer/BoxContainer/LineEdit.text, PORT)
 	else:
 		peer.create_client("127.0.0.1", PORT)
 	#peer.create_client("127.0.0.1", PORT)
 	multiplayer.multiplayer_peer = peer
-
+	$CanvasLayer.hide()
 	
 
-func start_host_and_join() -> void:
+func _on_host_play_pressed() -> void:
 	peer.create_server(PORT)
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(del_player)
 	add_player() # si le serveur a déjà un joueur
-
+	$CanvasLayer.hide()
 
 @export var player_scene : PackedScene
 func add_player(id = 1):
