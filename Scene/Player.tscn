@@ -146,6 +146,7 @@ position = Vector2(-1.75194, 0.29199)
 texture = ExtResource("2_fvocf")
 hframes = 12
 vframes = 5
+frame = 37
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.83739, 3.97225)
@@ -170,9 +171,12 @@ libraries = {
 autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -20)
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
 script = ExtResource("4_3pik8")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
