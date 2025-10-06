@@ -6,10 +6,6 @@ var isAttacking = false
 var attackDuration = 0.2 # durée de l’attaque en secondes
 var attackTimer = 0.0
 
-
-
-	
-
 func start_attack():
 	isAttacking = true
 	attackTimer = 0.0
@@ -112,14 +108,12 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 #functions
 func _ready():
-	
 	if is_multiplayer_authority():
 		#use kin functions to set jump velocites
 		jumpVelocity = -sqrt(2 * gravity * jumpHeight) 
 		doubleJumpVelocity = -sqrt(2 * gravity * doubleJumpHeight) 
 		
 		wallJumpVelocity = -sqrt(2 * gravity * jumpHeight)
-		
 
 
 func _physics_process(delta):

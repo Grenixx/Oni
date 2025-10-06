@@ -1,2 +1,3 @@
 res://Scene/World.tscn
 res://Scene/Player.tscn
+res://Scripts/Player.gd
