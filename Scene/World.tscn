@@ -5,11 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://dw075oo5raikn" path="res://Sprites/Clouds.png" id="3_3sajw"]
 [ext_resource type="PackedScene" uid="uid://c2nxsy2ka7h7w" path="res://Scene/enemy.tscn" id="3_3vc68"]
 [ext_resource type="Texture2D" uid="uid://jxyeq1nv4qwr" path="res://Sprites/TerrainTileSet.png" id="3_53g8k"]
-[ext_resource type="Script" uid="uid://bip547nejvp3l" path="res://Scripts/canvas_layer.gd" id="3_njlop"]
+[ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_njlop"]
 [ext_resource type="Texture2D" uid="uid://md64pbob8cnd" path="res://Sprites/Mountain_Back.png" id="4_hddgy"]
 [ext_resource type="Texture2D" uid="uid://c4aoda7mt4i7g" path="res://Sprites/Mountain_Front.png" id="5_g3u1b"]
 [ext_resource type="Texture2D" uid="uid://cs6uid6lbyr1i" path="res://Sprites/Mountain_Middle.png" id="5_gn608"]
-[ext_resource type="PackedScene" uid="uid://kohcbgh3xk03" path="res://crawler.tscn" id="10_g3u1b"]
+[ext_resource type="PackedScene" path="res://crawler.tscn" id="10_g3u1b"]
+
 
 [sub_resource type="Environment" id="Environment_hddgy"]
 background_mode = 1

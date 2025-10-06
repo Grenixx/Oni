@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://kohcbgh3xk03"]
 
 [ext_resource type="Script" uid="uid://cvhfrrklogmfr" path="res://crawler.gd" id="1_3n7dr"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://cncvuh6do03wt"]
+
+[ext_resource type="Script" path="res://crawler.gd" id="1_3n7dr"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://dxdtw43hg2r4i" path="res://icon.png" id="2_f6m34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n7dr"]

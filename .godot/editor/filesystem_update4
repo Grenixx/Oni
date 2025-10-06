@@ -1,8 +1,1 @@
-res://enemy.tscn
-res://enemy.gd
-res://crawler.tscn
 res://Scene/World.tscn
-res://crawler.gd
-res://Scene/Player.tscn
-res://Scripts/connetServerClientUpnp.gd
-res://Scripts/connetServerClient.gd

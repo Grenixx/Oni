@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=2 format=3 uid="uid://cb0ba2s80vnd2"]
 
 [ext_resource type="Script" uid="uid://irnvdqrb5xxj" path="res://hp.gd" id="1_nj1y6"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://cwryf1ikn0qya"]
+
+[ext_resource type="Script" path="res://hp.gd" id="1_nj1y6"]
+>>>>>>> Stashed changes
 
 [node name="Hp" type="Node"]
 script = ExtResource("1_nj1y6")
