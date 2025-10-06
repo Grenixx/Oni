@@ -6,10 +6,6 @@ var isAttacking = false
 var attackDuration = 0.2 # durée de l’attaque en secondes
 var attackTimer = 0.0
 
-
-
-	
-
 func start_attack():
 	isAttacking = true
 	attackTimer = 0.0
@@ -111,8 +107,10 @@ var wallJumpVelocity #how much to apply to velocity.y to reach wall jump height
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 #functions
+
+
+
 func _ready():
-	
 	if is_multiplayer_authority():
 		#use kin functions to set jump velocites
 		jumpVelocity = -sqrt(2 * gravity * jumpHeight) 
@@ -120,13 +118,16 @@ func _ready():
 		
 		wallJumpVelocity = -sqrt(2 * gravity * jumpHeight)
 		
-
-
+var syncPosition : Vector2
+@export var lerp_speed_syncPosition := 0.2
 func _physics_process(delta):
+	if not is_multiplayer_authority():
+		global_position = global_position.lerp(syncPosition,lerp_speed_syncPosition)
 	if is_multiplayer_authority():
+		syncPosition = global_position 
 		get_input()
 		
-		apply_gravity(delta)	
+		apply_gravity(delta)
 		
 		call(currentState + "_logic", delta) #call the current states main method
 		
