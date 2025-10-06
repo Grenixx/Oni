@@ -16,7 +16,7 @@ func _on_join_pressed() -> void:
 	multiplayer.multiplayer_peer = peer
 	$CanvasLayer.hide()
 
-@onready var player_scene = preload("res://Objects/Player.tscn")
+@onready var player_scene = preload("res://Scene/Player.tscn")
 func add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)

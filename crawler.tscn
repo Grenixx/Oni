@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://kohcbgh3xk03"]
+
+[ext_resource type="Script" uid="uid://cvhfrrklogmfr" path="res://crawler.gd" id="1_3n7dr"]
+[ext_resource type="Texture2D" uid="uid://dxdtw43hg2r4i" path="res://icon.png" id="2_f6m34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n7dr"]
+size = Vector2(64, 62)
+
+[node name="crawler" type="CharacterBody2D"]
+script = ExtResource("1_3n7dr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 9)
+texture = ExtResource("2_f6m34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 9)
+shape = SubResource("RectangleShape2D_3n7dr")

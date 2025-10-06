@@ -40,11 +40,13 @@ func _on_host_pressed() -> void:
 
 func _on_join_pressed() -> void:
 	if $CanvasLayer/HBoxContainer/BoxContainer/LineEdit.text :
+		print("connecting to distant computer")
 		peer.create_client($CanvasLayer/HBoxContainer/BoxContainer/LineEdit.text, PORT)
 	else:
+		print("connecting to local computer")
 		peer.create_client("127.0.0.1", PORT)
-	#peer.create_client("127.0.0.1", PORT)
 	multiplayer.multiplayer_peer = peer
+	add_player()
 	$CanvasLayer.hide()
 	
 

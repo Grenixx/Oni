@@ -1,6 +1,10 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759741634
+::res://::1759748312
+crawler.tscn::PackedScene::731218377622894190::1759748317::0::1::::<><><>0<>0<><>::uid://cvhfrrklogmfr::::res://enemy.gd<>uid://dxdtw43hg2r4i::::res://icon.png
+enemy.gd::GDScript::6261592580387261019::1759748281::0::1::::<>CharacterBody2D<><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1758914951::0::1::::<><><>0<>0<><>::
+hp.gd::GDScript::597432176563108243::1759744750::0::1::::<>Node<><>0<>0<><>::
+hp.tscn::PackedScene::4894701819339046669::1759744752::0::1::::<><><>0<>0<><>::uid://irnvdqrb5xxj::::res://hp.gd
 icon.png::CompressedTexture2D::8780993065103523518::1758914951::1758915035::1::::<><><>0<>0<>ab8d31929a25efc1769a66112bd37558<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
 Mitsukuni_defying_the_skeleton_spectre_invoked_by_princess_Takiyasha.jpg::CompressedTexture2D::630394518377297195::1759677594::1759677598::1::::<><><>0<>0<>82e21a5d82341f30fa331c2d4f85f562<>res://.godot/imported/Mitsukuni_defying_the_skeleton_spectre_invoked_by_princess_Takiyasha.jpg-8844c8a4febea6b450c16938ab3db388.ctex::
 splash_screen.gd::GDScript::368587591363103380::1759600807::0::1::::<>Control<><>0<>0<><>::
@@ -8,13 +12,13 @@ world.tscn::PackedScene::4247606622115150560::1759685759::0::1::::<><><>0<>0<><>
 ::res://ressource/::1759600664
 ChatGPT Image 4 oct. 2025, 19_55_56.png::CompressedTexture2D::2458586013894142175::1759600575::1759600664::1::::<><><>0<>0<>34195198de6a46c17967a93ebc0a3ddc<>res://.godot/imported/ChatGPT Image 4 oct. 2025, 19_55_56.png-3bd62b5ce3929631b0b147768bd2dba4.ctex::
 lichitLogo.png::CompressedTexture2D::8992949328828677579::1759600358::1759600664::1::::<><><>0<>0<>f762b913844b68ad3f721ac31433eb71<>res://.godot/imported/lichitLogo.png-6444e2bf2328056c15a708439b02bdf4.ctex::
-::res://Scene/::1759691934
+::res://Scene/::1759744833
 enemy.tscn::PackedScene::6696206994265514226::1759685707::0::1::::<><><>0<>0<><>::uid://drllva5jcockr::::res://Scripts/enemy.gd<>uid://dxdtw43hg2r4i::::res://icon.png
-Player.tscn::PackedScene::4133000965423127357::1759691446::0::1::::<><><>0<>0<><>::uid://ctnm2qdaq0y2g::::res://Scripts/Player.gd<>uid://dhu8r8eg4jfmh::::res://Sprites/PlayerSpriteSheet.png<>uid://dxdtw43hg2r4i::::res://icon.png<>uid://dk2x7eh45cjye::::res://Scripts/camera_2d.gd
+Player.tscn::PackedScene::4133000965423127357::1759744833::0::1::::<><><>0<>0<><>::uid://ctnm2qdaq0y2g::::res://Scripts/Player.gd<>uid://dhu8r8eg4jfmh::::res://Sprites/PlayerSpriteSheet.png<>uid://dxdtw43hg2r4i::::res://icon.png<>uid://dk2x7eh45cjye::::res://Scripts/camera_2d.gd
 PlayerOld.tscn::PackedScene::7032447182435316630::1759685746::0::1::::<><><>0<>0<><>::uid://ctnm2qdaq0y2g::::res://Scripts/Player.gd<>uid://dhu8r8eg4jfmh::::res://Sprites/PlayerSpriteSheet.png<>uid://dk2x7eh45cjye::::res://Scripts/camera_2d.gd
 SplashScreen.tscn::PackedScene::1594412858907944860::1759677518::0::1::::<><><>0<>0<><>::uid://fist333epq2g::::res://splash_screen.gd<>uid://dp3u5wef4s2o6::::res://Scene/World.tscn<>uid://bba7s1vkbm5lb::::res://ressource/ChatGPT Image 4 oct. 2025, 19_55_56.png
 tutorial.tscn::PackedScene::4896868313127342979::1759686000::0::1::::<><><>0<>0<><>::uid://dw075oo5raikn::::res://Sprites/Clouds.png<>uid://md64pbob8cnd::::res://Sprites/Mountain_Back.png<>uid://bsq6lkx52fl2u::::res://Sprites/House.png<>uid://jxyeq1nv4qwr::::res://Sprites/TerrainTileSet.png<>uid://by5b6l5yaff5f::::res://Scene/Player.tscn
-World.tscn::PackedScene::8271166358395529703::1759691934::0::1::::<><><>0<>0<><>::uid://bkuqypnn14of::::res://Scripts/connetServerClientUpnp.gd<>uid://by5b6l5yaff5f::::res://Scene/Player.tscn<>uid://dw075oo5raikn::::res://Sprites/Clouds.png<>uid://c2nxsy2ka7h7w::::res://Scene/enemy.tscn<>uid://jxyeq1nv4qwr::::res://Sprites/TerrainTileSet.png<>uid://bip547nejvp3l::::res://Scripts/canvas_layer.gd<>uid://md64pbob8cnd::::res://Sprites/Mountain_Back.png<>uid://c4aoda7mt4i7g::::res://Sprites/Mountain_Front.png<>uid://cs6uid6lbyr1i::::res://Sprites/Mountain_Middle.png
+World.tscn::PackedScene::8271166358395529703::1759744615::0::1::::<><><>0<>0<><>::uid://bkuqypnn14of::::res://Scripts/connetServerClientUpnp.gd<>uid://by5b6l5yaff5f::::res://Scene/Player.tscn<>uid://dw075oo5raikn::::res://Sprites/Clouds.png<>uid://c2nxsy2ka7h7w::::res://Scene/enemy.tscn<>uid://jxyeq1nv4qwr::::res://Sprites/TerrainTileSet.png<>uid://bip547nejvp3l::::res://Scripts/canvas_layer.gd<>uid://md64pbob8cnd::::res://Sprites/Mountain_Back.png<>uid://c4aoda7mt4i7g::::res://Sprites/Mountain_Front.png<>uid://cs6uid6lbyr1i::::res://Sprites/Mountain_Middle.png
 ::res://Scripts/::1759685835
 camera_2d.gd::GDScript::7918342545322665000::1759256945::0::1::::<>Camera2D<><>0<>0<><>::
 canvas_layer.gd::GDScript::2980772097938767095::1759607029::0::1::::<>CanvasLayer<><>0<>0<><>::

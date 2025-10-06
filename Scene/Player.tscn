@@ -5,6 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://dxdtw43hg2r4i" path="res://icon.png" id="3_pmp2f"]
 [ext_resource type="Script" uid="uid://dk2x7eh45cjye" path="res://Scripts/camera_2d.gd" id="4_3pik8"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_n6db0"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath("AnimationPlayer:current_animation")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath("Sprite2D:flip_h")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(18.63318, 22.8372)
 
@@ -122,23 +133,15 @@ _data = {
 &"attack": SubResource("Animation_yk4ok")
 }
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_n6db0"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 2
-properties/1/path = NodePath("AnimationPlayer:current_animation")
-properties/1/spawn = true
-properties/1/replication_mode = 2
-properties/2/path = NodePath("Sprite2D:flip_h")
-properties/2/spawn = true
-properties/2/replication_mode = 2
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yk4ok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gijnf"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mud5u")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_n6db0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -171,12 +174,9 @@ autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -20)
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 script = ExtResource("4_3pik8")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_n6db0")
 
 [node name="HurtBox" type="Area2D" parent="."]
 

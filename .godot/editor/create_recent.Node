@@ -1,5 +1,9 @@
-WorldEnvironment
+CollisionShape2D
+AnimatedSprite2D
+Node
 Sprite2D
+CharacterBody2D
+WorldEnvironment
 Parallax2D
 TileMapLayer
 Control
@@ -9,6 +13,3 @@ TextureRect
 CenterContainer
 Button
 Label
-LineEdit
-TextEdit
-CollisionShape2D

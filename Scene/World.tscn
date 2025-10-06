@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp3u5wef4s2o6"]
+[gd_scene load_steps=15 format=3 uid="uid://dp3u5wef4s2o6"]
 
 [ext_resource type="Script" uid="uid://bkuqypnn14of" path="res://Scripts/connetServerClientUpnp.gd" id="1_hmvop"]
 [ext_resource type="PackedScene" uid="uid://by5b6l5yaff5f" path="res://Scene/Player.tscn" id="2_gx810"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://md64pbob8cnd" path="res://Sprites/Mountain_Back.png" id="4_hddgy"]
 [ext_resource type="Texture2D" uid="uid://c4aoda7mt4i7g" path="res://Sprites/Mountain_Front.png" id="5_g3u1b"]
 [ext_resource type="Texture2D" uid="uid://cs6uid6lbyr1i" path="res://Sprites/Mountain_Middle.png" id="5_gn608"]
+[ext_resource type="PackedScene" uid="uid://kohcbgh3xk03" path="res://crawler.tscn" id="10_g3u1b"]
 
 [sub_resource type="Environment" id="Environment_hddgy"]
 background_mode = 1
@@ -6566,6 +6567,9 @@ position = Vector2(126, 31)
 
 [node name="ennemy3" parent="." instance=ExtResource("3_3vc68")]
 position = Vector2(87, 54)
+
+[node name="enemy" parent="." instance=ExtResource("10_g3u1b")]
+position = Vector2(121, -69)
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/BoxContainer/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/BoxContainer/join" to="." method="_on_join_pressed"]
