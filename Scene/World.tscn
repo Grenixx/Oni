@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp3u5wef4s2o6"]
+[gd_scene load_steps=17 format=3 uid="uid://dp3u5wef4s2o6"]
 
 [ext_resource type="Script" uid="uid://bkuqypnn14of" path="res://Scripts/connetServerClientUpnp.gd" id="1_hmvop"]
 [ext_resource type="PackedScene" uid="uid://by5b6l5yaff5f" path="res://Scene/Player.tscn" id="2_gx810"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://md64pbob8cnd" path="res://Sprites/Mountain_Back.png" id="4_hddgy"]
 [ext_resource type="Texture2D" uid="uid://c4aoda7mt4i7g" path="res://Sprites/Mountain_Front.png" id="5_g3u1b"]
 [ext_resource type="Texture2D" uid="uid://cs6uid6lbyr1i" path="res://Sprites/Mountain_Middle.png" id="5_gn608"]
+[ext_resource type="Shader" uid="uid://cjkby3nlqfylq" path="res://Shader/water.gdshader" id="9_g3u1b"]
+[ext_resource type="Texture2D" uid="uid://dxdtw43hg2r4i" path="res://icon.png" id="10_gn608"]
 
 [sub_resource type="Environment" id="Environment_hddgy"]
 background_mode = 1
@@ -6309,6 +6311,19 @@ texture = ExtResource("3_53g8k")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gn608")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g3u1b"]
+noise_type = 0
+frequency = 0.0175
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gn608"]
+noise = SubResource("FastNoiseLite_g3u1b")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qj6l"]
+shader = ExtResource("9_g3u1b")
+shader_parameter/water_color = Color(0.07004494, 0.38124156, 0.87023896, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_gn608")
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_hmvop")
 player_scene = ExtResource("2_gx810")
@@ -6514,3 +6529,10 @@ position = Vector2(126, 31)
 
 [node name="ennemy3" parent="." instance=ExtResource("3_3vc68")]
 position = Vector2(87, 54)
+
+[node name="Water" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_1qj6l")
+position = Vector2(-50.999996, 117.00001)
+scale = Vector2(50, 1.5)
+texture = ExtResource("10_gn608")

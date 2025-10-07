@@ -127,7 +127,6 @@ func _physics_process(delta):
 		get_input()
 		
 		apply_gravity(delta)
-		print(currentState)
 		call(currentState + "_logic", delta) #call the current states main method
 		
 		set_velocity(velocity)
@@ -379,7 +378,6 @@ func jump_enter_logic():
 
 func jump_logic(delta):
 	move_horizontally(airFriction)
-	print(velocity.y)
 	if velocity.y < 0:
 		# si on est en montée
 		if isJumping:
@@ -398,7 +396,7 @@ func jump_logic(delta):
 		if isJumping:
 			velocity.y += gravity * 0.8 * delta  # gravité plus faible
 		else:
-			velocity.y += gravity * 1.2 * delta        # gravité normale
+			velocity.y += gravity * delta        # gravité normale
 
 		# Double jump
 		if isJumpPressed and not isDoubleJumped:
