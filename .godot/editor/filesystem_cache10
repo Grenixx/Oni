@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759763810
+::res://::1759851637
 export_presets.cfg::TextFile::-1::1758914951::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D::8780993065103523518::1758914951::1758915035::1::::<><><>0<>0<>ab8d31929a25efc1769a66112bd37558<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
 menu.gd::GDScript::8856568954559836453::1759763638::0::1::::<>Control<><>0<>0<><>::
@@ -10,14 +10,14 @@ world.tscn::PackedScene::4247606622115150560::1759763638::0::1::::<><><>0<>0<><>
 ::res://ressource/::1759763775
 ChatGPT Image 4 oct. 2025, 19_55_56.png::CompressedTexture2D::2458586013894142175::1759763638::1759763775::1::::<><><>0<>0<>34195198de6a46c17967a93ebc0a3ddc<>res://.godot/imported/ChatGPT Image 4 oct. 2025, 19_55_56.png-3bd62b5ce3929631b0b147768bd2dba4.ctex::
 lichitLogo.png::CompressedTexture2D::8992949328828677579::1759763638::1759763775::1::::<><><>0<>0<>f762b913844b68ad3f721ac31433eb71<>res://.godot/imported/lichitLogo.png-6444e2bf2328056c15a708439b02bdf4.ctex::
-::res://Scene/::1759763637
+::res://Scene/::1759783473
 enemy.tscn::PackedScene::6696206994265514226::1759763637::0::1::::<><><>0<>0<><>::uid://drllva5jcockr::::res://Scripts/enemy.gd<>uid://dxdtw43hg2r4i::::res://icon.png
-Player.tscn::PackedScene::4133000965423127357::1759763637::0::1::::<><><>0<>0<><>::uid://ctnm2qdaq0y2g::::res://Scripts/Player.gd<>uid://dhu8r8eg4jfmh::::res://Sprites/PlayerSpriteSheet.png<>uid://dxdtw43hg2r4i::::res://icon.png<>uid://dk2x7eh45cjye::::res://Scripts/camera_2d.gd
+Player.tscn::PackedScene::4133000965423127357::1759783473::0::1::::<><><>0<>0<><>::uid://ctnm2qdaq0y2g::::res://Scripts/Player.gd<>uid://dhu8r8eg4jfmh::::res://Sprites/PlayerSpriteSheet.png<>uid://dxdtw43hg2r4i::::res://icon.png<>uid://dk2x7eh45cjye::::res://Scripts/camera_2d.gd
 PlayerOld.tscn::PackedScene::7032447182435316630::1759763637::0::1::::<><><>0<>0<><>::uid://ctnm2qdaq0y2g::::res://Scripts/Player.gd<>uid://dhu8r8eg4jfmh::::res://Sprites/PlayerSpriteSheet.png<>uid://dk2x7eh45cjye::::res://Scripts/camera_2d.gd
 SplashScreen.tscn::PackedScene::1594412858907944860::1759763637::0::1::::<><><>0<>0<><>::uid://fist333epq2g::::res://splash_screen.gd<>uid://cg8n57xuwmtnd::::res://menu.tscn<>uid://bba7s1vkbm5lb::::res://ressource/ChatGPT Image 4 oct. 2025, 19_55_56.png
 tutorial.tscn::PackedScene::4896868313127342979::1759763637::0::1::::<><><>0<>0<><>::uid://dw075oo5raikn::::res://Sprites/Clouds.png<>uid://md64pbob8cnd::::res://Sprites/Mountain_Back.png<>uid://bsq6lkx52fl2u::::res://Sprites/House.png<>uid://jxyeq1nv4qwr::::res://Sprites/TerrainTileSet.png<>uid://by5b6l5yaff5f::::res://Scene/Player.tscn
 World.tscn::PackedScene::8271166358395529703::1759763637::0::1::::<><><>0<>0<><>::uid://bkuqypnn14of::::res://Scripts/connetServerClientUpnp.gd<>uid://by5b6l5yaff5f::::res://Scene/Player.tscn<>uid://dw075oo5raikn::::res://Sprites/Clouds.png<>uid://c2nxsy2ka7h7w::::res://Scene/enemy.tscn<>uid://jxyeq1nv4qwr::::res://Sprites/TerrainTileSet.png<>uid://md64pbob8cnd::::res://Sprites/Mountain_Back.png<>uid://c4aoda7mt4i7g::::res://Sprites/Mountain_Front.png<>uid://cs6uid6lbyr1i::::res://Sprites/Mountain_Middle.png
-::res://Scripts/::1759763638
+::res://Scripts/::1759783381
 camera_2d.gd::GDScript::7918342545322665000::1759763638::0::1::::<>Camera2D<><>0<>0<><>::
 connetServerClient.gd::GDScript::4321470942805270452::1759749956::0::1::::<>Node2D<><>0<>0<><>::
 connetServerClientUpnp.gd::GDScript::92076818077996245::1759763638::0::1::::<>Node2D<><>0<>0<><>::
@@ -25,11 +25,18 @@ connetServerClientUpnpOld2.gd::GDScript::4377349171046739633::1759763638::0::1::
 connetServerClientUpnpOld.gd::GDScript::2132027839615690693::1759763638::0::1::::<>Node2D<><>0<>0<><>::
 enemy.gd::GDScript::8375885983569222045::1759763638::0::1::::<>Node2D<><>0<>0<><>::
 NetworkSettings.gd::GDScript::3430921236414792800::1759763637::0::1::::<>Node<><>0<>0<><>::
-Player.gd::GDScript::6134043972690632452::1759763637::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Player.gd::GDScript::6134043972690632452::1759783322::0::1::::<>CharacterBody2D<><>0<>0<><>::
 PlayerOld2.gd::GDScript::8154648516473960584::1759763637::0::1::::<>CharacterBody2D<><>0<>0<><>::
 PlayerOld3.gd::GDScript::7088774298048165960::1759763638::0::1::::<>CharacterBody2D<><>0<>0<><>::
 PlayerOld4.gd::GDScript::6797087793839155234::1759763638::0::1::::<>CharacterBody2D<><>0<>0<><>::
 PlayerOld5.gd::GDScript::6395704284369645732::1759763638::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerOld6.gd::GDScript::5539245780019477228::1759775441::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerOld7.gd::GDScript::3125834358647092498::1759777423::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerOld8.gd::GDScript::2795333602137027797::1759779879::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerOld9.gd::GDScript::6643762991748537298::1759781824::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerOld10.gd::GDScript::6022423071868998993::1759782129::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerOld11.gd::GDScript::498217220623918618::1759783123::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerOld12.gd::GDScript::5943702687694867257::1759783381::0::1::::<>CharacterBody2D<><>0<>0<><>::
 PlayerOld.gd::GDScript::7733767649798645615::1759254885::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://Sprites/::1759763775
 BackgroundTrees.png::CompressedTexture2D::1688591637394713160::1759763638::1759763775::1::::<><><>0<>0<>fedea7435b23e384cea6a249a9ac01c3<>res://.godot/imported/BackgroundTrees.png-b6d27656de388c93bc001c6b3984eb70.ctex::

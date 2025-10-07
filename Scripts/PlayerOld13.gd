@@ -80,13 +80,12 @@ var gravity = 700 #how much is added to y velocity constantly
 
 var jumpBufferStartTime  = 0 #ticks when you ran of the platform
 var elapsedJumpBuffer = 0 #how many seconds passed in the jump nuffer
-var jumpBuffer = 200 #how many miliseconds allowance you give jumps after you run of an edge
+var jumpBuffer = 100 #how many miliseconds allowance you give jumps after you run of an edge
 
 
 #jump
-var jumpHeight = 20  #How high the peak of the jump is in pixels
+var jumpHeight = 100  #How high the peak of the jump is in pixels
 var jumpVelocity #how much to apply to velocity.y to reach jump height
-var minJumpHeight = -50
 
 #double jump
 var doubleJumpHeight = 50 #How high the peak of the double jump is in pixels
@@ -102,7 +101,7 @@ var isDoubleJumped = false #if you have double jumped
 var wallSlideSpeed = 50 #how fast you slide on a wll
 
 #wall jump
-var wallJumpHeight = 100 #how high you want the peak of your wall jump to be in pixels
+var wallJumpHeight = 50 #how high you want the peak of your wall jump to be in pixels
 var wallJumpVelocity #how much to apply to velocity.y to reach wall jump height
 
 func _enter_tree() -> void:
@@ -117,7 +116,7 @@ func _ready():
 		jumpVelocity = -sqrt(2 * gravity * jumpHeight) 
 		doubleJumpVelocity = -sqrt(2 * gravity * doubleJumpHeight) 
 		
-		wallJumpVelocity = -sqrt(2 * gravity * wallJumpHeight)
+		wallJumpVelocity = -sqrt(2 * gravity * jumpHeight)
 		
 var syncPosition : Vector2
 @export var lerp_speed_syncPosition := 0.2
@@ -227,7 +226,7 @@ func squash_stretch(squash, stretch):
 
 func jump(jumpVelocity):
 	velocity.y = 0 #reset velocity
-	velocity.y = jumpVelocity#jumpVelocity #apply velocity
+	velocity.y = jumpVelocity #apply velocity
 	canDash = true #allow the player to dash when they jump
 	
 	squash_stretch(jumpingSquash, jumpingStretch) #set squaash and stretch
@@ -239,7 +238,7 @@ func idle_enter_logic():
 func idle_logic(delta):
 	if jumpInput:
 		#jump if you press button
-		jump(jumpVelocity / 3)
+		jump(jumpVelocity)
 		set_state("jump")
 	
 	if isDashPressed:
@@ -263,7 +262,7 @@ func run_enter_logic():
 func run_logic(delta):
 	if jumpInput:
 		#jump if you press the jump button
-		jump(jumpVelocity / 3)
+		jump(jumpVelocity)
 		set_state("jump")
 		
 	if isDashPressed:
@@ -306,7 +305,7 @@ func fall_logic(delta):
 			#if your in the jump buffer window
 			if previousState == "run":
 				#and your previpus state is run
-				jump(jumpVelocity / 3) #jump with ground velocity
+				jump(jumpVelocity) #jump with ground velocity
 				set_state("jump") #set state to jump
 			if previousState == "wall_slide":
 				#and your previous state is wall slide
@@ -385,7 +384,6 @@ func jump_logic(delta):
 		# si on est en montée
 		if isJumping:
 			jumpHoldTime += delta
-			velocity.y += jumpVelocity/5
 			if jumpHoldTime > maxJumpHold:
 				isJumping = false  # on arrête d'appliquer le "bonus de saut"
 		
