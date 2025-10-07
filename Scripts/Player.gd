@@ -81,12 +81,10 @@ var gravity = 700 #how much is added to y velocity constantly
 var jumpBufferStartTime  = 0 #ticks when you ran of the platform
 var elapsedJumpBuffer = 0 #how many seconds passed in the jump nuffer
 var jumpBuffer = 200 #how many miliseconds allowance you give jumps after you run of an edge
-
-
 #jump
-var jumpHeight = 20  #How high the peak of the jump is in pixels
+@export var jumpHeight = 20  #How high the peak of the jump is in pixels
 var jumpVelocity #how much to apply to velocity.y to reach jump height
-var minJumpHeight = -50
+@export var minJumpHeight = 1.5
 
 #double jump
 var doubleJumpHeight = 50 #How high the peak of the double jump is in pixels
@@ -129,7 +127,7 @@ func _physics_process(delta):
 		get_input()
 		
 		apply_gravity(delta)
-		
+		print(currentState)
 		call(currentState + "_logic", delta) #call the current states main method
 		
 		set_velocity(velocity)
@@ -239,8 +237,9 @@ func idle_enter_logic():
 func idle_logic(delta):
 	if jumpInput:
 		#jump if you press button
-		jump(jumpVelocity / 3)
+		jump(jumpVelocity / minJumpHeight)
 		set_state("jump")
+		return 
 	
 	if isDashPressed:
 		#dash if you press button
@@ -263,14 +262,15 @@ func run_enter_logic():
 func run_logic(delta):
 	if jumpInput:
 		#jump if you press the jump button
-		jump(jumpVelocity / 3)
+		jump(jumpVelocity / minJumpHeight)
 		set_state("jump")
+		return
 		
 	if isDashPressed:
 		#dash if you press the dash button
 		set_state("dash")
 	
-	if !is_on_floor():
+	if !is_on_floor() and isJumping == false:
 		#if your not on a floor, start falling and set jumpbuffer start time
 		jumpBufferStartTime = Time.get_ticks_msec()
 		set_state("fall")
@@ -306,7 +306,7 @@ func fall_logic(delta):
 			#if your in the jump buffer window
 			if previousState == "run":
 				#and your previpus state is run
-				jump(jumpVelocity / 3) #jump with ground velocity
+				jump(jumpVelocity / minJumpHeight) #jump with ground velocity
 				set_state("jump") #set state to jump
 			if previousState == "wall_slide":
 				#and your previous state is wall slide
@@ -377,10 +377,9 @@ func jump_enter_logic():
 	isJumping = true
 	jumpHoldTime = 0.0
 
-
 func jump_logic(delta):
 	move_horizontally(airFriction)
-
+	print(velocity.y)
 	if velocity.y < 0:
 		# si on est en montée
 		if isJumping:
@@ -388,13 +387,16 @@ func jump_logic(delta):
 			velocity.y += jumpVelocity/5
 			if jumpHoldTime > maxJumpHold:
 				isJumping = false  # on arrête d'appliquer le "bonus de saut"
+				jumpHoldTime = 0.0
 		
 		if isJumpReleased:
+			
 			isJumping = false  # relâchement stoppe immédiatement la montée
+			jumpHoldTime = 0.0
 		
 		# Applique gravité réduite si encore en saut
 		if isJumping:
-			velocity.y += gravity * 0.2 * delta  # gravité plus faible
+			velocity.y += gravity * 0.8 * delta  # gravité plus faible
 		else:
 			velocity.y += gravity * 1.2 * delta        # gravité normale
 
@@ -415,6 +417,7 @@ func jump_logic(delta):
 
 func jump_exit_logic():
 	isJumping = false
+	
 
 
 func double_jump_enter_logic():

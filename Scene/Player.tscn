@@ -139,6 +139,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mud5u")
+minJumpHeight = 1.0
 
 [node name="sync" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_n6db0")
