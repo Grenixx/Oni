@@ -1,4 +1,7 @@
 Sprite2D
+CanvasModulate
+DirectionalLight2D
+PointLight2D
 WorldEnvironment
 Parallax2D
 TileMapLayer
@@ -9,6 +12,3 @@ TextureRect
 CenterContainer
 Button
 Label
-LineEdit
-TextEdit
-CollisionShape2D
