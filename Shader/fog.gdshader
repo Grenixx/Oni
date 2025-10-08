@@ -383,6 +383,6 @@ void process() {
     }
     
     process_fog_push(VELOCITY.xy, TRANSFORM[3].xy, NUMBER, DELTA);
-    CUSTOM.x += length(VELOCITY.xy) * 0.00001 * fog_vanish * DELTA;
+    CUSTOM.x += length(VELOCITY.xy) * 0.1 * fog_vanish * DELTA;
     COLOR.a -= CUSTOM.x;
 }

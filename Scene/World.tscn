@@ -6326,7 +6326,7 @@ shader_parameter/water_color = Color(0.07004494, 0.38124156, 0.87023896, 1)
 shader_parameter/wave_noise = SubResource("NoiseTexture2D_gn608")
 
 [sub_resource type="Curve" id="Curve_caqns"]
-_data = [Vector2(0.26666668, 1), 0.0, 0.0, 0, 0, Vector2(0.6222222, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.008810572, 0), 0.0, 0.0, 0, 0, Vector2(0.057268724, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_r8foa"]
@@ -6358,8 +6358,8 @@ shader_parameter/damping_min = 0.0
 shader_parameter/damping_max = 0.0
 shader_parameter/initial_angle_min = 0.0
 shader_parameter/initial_angle_max = 0.0
-shader_parameter/scale_min = 0.07
-shader_parameter/scale_max = 0.135
+shader_parameter/scale_min = 0.02
+shader_parameter/scale_max = 0.06
 shader_parameter/hue_variation_min = 0.0
 shader_parameter/hue_variation_max = 0.0
 shader_parameter/anim_speed_min = 0.0
@@ -6370,13 +6370,13 @@ shader_parameter/lifetime_randomness = 0.0
 shader_parameter/emission_shape_offset = Vector3(0, 0, 0)
 shader_parameter/emission_shape_scale = Vector3(1, 1, 1)
 shader_parameter/velocity_pivot = Vector3(0, 0, 0)
-shader_parameter/emission_box_extents = Vector3(1000, 10, 0)
+shader_parameter/emission_box_extents = Vector3(500, 20, 0)
 shader_parameter/color_value = Color(1, 1, 1, 1)
-shader_parameter/gravity = Vector3(0, 2, 0)
+shader_parameter/gravity = Vector3(0, 3, 0)
 shader_parameter/alpha_curve = SubResource("CurveTexture_r8foa")
-shader_parameter/fog_radius = 50.000002375
+shader_parameter/fog_radius = 20.00000095
 shader_parameter/fog_damp = 7.5
-shader_parameter/fog_vanish = 0.010000000475
+shader_parameter/fog_vanish = 0.6000000285
 shader_parameter/fog_spread = 15.0
 shader_parameter/fog_max_vel = 0.6
 shader_parameter/player_swirl = 20.0
@@ -6609,7 +6609,7 @@ texture = ExtResource("10_gn608")
 [node name="Fog" type="GPUParticles2D" parent="."]
 z_index = 1
 position = Vector2(-292, 31)
-amount = 20000
+amount = 2000
 texture = ExtResource("12_uoios")
 lifetime = 100.0
 process_material = SubResource("ShaderMaterial_uoios")

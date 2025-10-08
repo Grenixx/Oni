@@ -7,7 +7,9 @@ func _process(delta):
 	if player == null:
 		player = get_node_or_null("/root/World/1")
 		return
-
+	
+	
+	global_position = player.global_position
 	# Position du joueur dans le monde
 	var pos = player.global_position
 
